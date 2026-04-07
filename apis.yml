@@ -1,7 +1,11 @@
 aid: western-digital
-url: https://raw.githubusercontent.com/api-evangelist/western-digital/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/western-digital/refs/heads/main/apis.yml
 modified: '2026-03-21'
 apis: []
 common:
   - type: Website
     url: https://www.western-digital.com
+description: >-
+  Western Digital is a global leader in data infrastructure, providing storage solutions
+  including hard disk drives, solid state drives, flash memory, and data center systems.
