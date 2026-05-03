@@ -1,0 +1,45 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://device.mycloud.com/sdk/v2/files",
+    "headers": {
+      "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "Accept": "application/json"
+    },
+    "params": {
+      "ids": "root",
+      "limit": 100
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "files": [
+        {
+          "id": "f1a2b3c4-d5e6-7890-abcd-ef1234567890",
+          "name": "Photos",
+          "mimeType": "application/x.wd.dir",
+          "size": 0,
+          "parentId": "root",
+          "createdTime": "2025-01-15T10:30:00Z",
+          "modifiedTime": "2026-04-20T14:22:00Z"
+        },
+        {
+          "id": "a9b8c7d6-e5f4-3210-fedc-ba9876543210",
+          "name": "vacation-2025.mp4",
+          "mimeType": "video/mp4",
+          "size": 524288000,
+          "parentId": "root",
+          "createdTime": "2025-08-20T18:45:00Z",
+          "modifiedTime": "2025-08-20T18:45:00Z",
+          "thumbnailUrl": "https://device.mycloud.com/sdk/v2/files/a9b8c7d6-e5f4-3210-fedc-ba9876543210/thumbnail",
+          "downloadUrl": "https://device.mycloud.com/sdk/v2/files/a9b8c7d6-e5f4-3210-fedc-ba9876543210/content"
+        }
+      ],
+      "pageToken": "next_page_token_abc123"
+    }
+  }
+}

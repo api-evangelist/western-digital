@@ -1,0 +1,63 @@
+extends: spectral:oas
+rules:
+  wd-operation-id-kebab-case:
+    description: Operation IDs must use camelCase.
+    message: "Operation ID '{{value}}' should use camelCase."
+    severity: warn
+    given: "$.paths.*.*.operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  wd-path-version-prefix:
+    description: All paths should include a version prefix (e.g. /v1/, /v2/, /sdk/v2/).
+    message: "Path '{{path}}' should include a version prefix (/v1/, /v2/, /sdk/v2/)."
+    severity: warn
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/(v[0-9]+|sdk/v[0-9]+|authservice/v[0-9]+|device/v[0-9]+|config/v[0-9]+)/"
+
+  wd-bearer-auth-required:
+    description: All device-tier paths must declare bearerAuth security.
+    message: "Operation '{{path}}' must include bearerAuth security."
+    severity: warn
+    given: "$.paths[?(!(/authorize|/oauth|/config))].*.security"
+    then:
+      function: truthy
+
+  wd-response-200-content-type:
+    description: Successful responses should return application/json.
+    message: "Response 200 at '{{path}}' should define application/json content."
+    severity: warn
+    given: "$.paths.*.*.responses.200.content"
+    then:
+      function: truthy
+
+  wd-no-trailing-slash:
+    description: Paths must not have a trailing slash.
+    message: "Path '{{value}}' must not end with a trailing slash."
+    severity: error
+    given: "$.paths[*]~"
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "/$"
+
+  wd-tags-defined:
+    description: Each operation must include at least one tag.
+    message: "Operation at '{{path}}' must include at least one tag."
+    severity: warn
+    given: "$.paths.*.*.tags"
+    then:
+      function: truthy
+
+  wd-description-required:
+    description: Each operation must have a description.
+    message: "Operation at '{{path}}' is missing a description."
+    severity: warn
+    given: "$.paths.*.*.description"
+    then:
+      function: truthy

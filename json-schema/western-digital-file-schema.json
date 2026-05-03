@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/western-digital/main/json-schema/western-digital-file-schema.json",
+  "title": "File Item",
+  "description": "Represents a file or folder on a WD My Cloud Home device.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique file or folder identifier."
+    },
+    "name": {
+      "type": "string",
+      "description": "File or folder name."
+    },
+    "mimeType": {
+      "type": "string",
+      "description": "MIME type of the file. 'application/x.wd.dir' indicates a folder."
+    },
+    "size": {
+      "type": "integer",
+      "description": "File size in bytes. 0 for folders."
+    },
+    "parentId": {
+      "type": "string",
+      "description": "ID of the parent folder. 'root' for top-level items."
+    },
+    "createdTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the file was created."
+    },
+    "modifiedTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the file was last modified."
+    },
+    "thumbnailUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL for image or video thumbnail (images and videos only)."
+    },
+    "downloadUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Direct download URL for the file content."
+    }
+  },
+  "required": ["id", "name", "mimeType", "parentId"]
+}

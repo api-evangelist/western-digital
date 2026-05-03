@@ -1,0 +1,91 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "wd": "https://developer.westerndigital.com/ontology/",
+
+    "FileItem": {
+      "@id": "wd:FileItem",
+      "@type": "@id"
+    },
+    "fileId": {
+      "@id": "wd:fileId",
+      "@type": "xsd:string"
+    },
+    "fileName": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "mimeType": {
+      "@id": "schema:encodingFormat",
+      "@type": "xsd:string"
+    },
+    "fileSize": {
+      "@id": "schema:contentSize",
+      "@type": "xsd:integer"
+    },
+    "parentId": {
+      "@id": "wd:parentId",
+      "@type": "xsd:string"
+    },
+    "createdTime": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "modifiedTime": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "thumbnailUrl": {
+      "@id": "schema:thumbnail",
+      "@type": "@id"
+    },
+    "downloadUrl": {
+      "@id": "schema:contentUrl",
+      "@type": "@id"
+    },
+
+    "Device": {
+      "@id": "wd:Device",
+      "@type": "@id"
+    },
+    "deviceId": {
+      "@id": "wd:deviceId",
+      "@type": "xsd:string"
+    },
+    "deviceName": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "internalURI": {
+      "@id": "wd:internalURI",
+      "@type": "@id"
+    },
+    "externalURI": {
+      "@id": "wd:externalURI",
+      "@type": "@id"
+    },
+    "deviceStatus": {
+      "@id": "wd:status",
+      "@type": "xsd:string"
+    },
+
+    "Share": {
+      "@id": "wd:Share",
+      "@type": "@id"
+    },
+    "shareId": {
+      "@id": "wd:shareId",
+      "@type": "xsd:string"
+    },
+    "shareUrl": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "expirationDate": {
+      "@id": "schema:expires",
+      "@type": "xsd:dateTime"
+    }
+  }
+}

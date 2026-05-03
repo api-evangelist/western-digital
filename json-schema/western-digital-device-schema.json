@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/western-digital/main/json-schema/western-digital-device-schema.json",
+  "title": "Device",
+  "description": "Represents a WD My Cloud Home NAS device.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique device identifier."
+    },
+    "name": {
+      "type": "string",
+      "description": "User-defined device name."
+    },
+    "model": {
+      "type": "string",
+      "description": "Device model name (e.g., 'My Cloud Home', 'My Cloud Home Duo')."
+    },
+    "internalURI": {
+      "type": "string",
+      "format": "uri",
+      "description": "Device endpoint for same-network (local) access."
+    },
+    "externalURI": {
+      "type": "string",
+      "format": "uri",
+      "description": "Device endpoint for remote access over the internet."
+    },
+    "status": {
+      "type": "string",
+      "description": "Current device status.",
+      "enum": ["online", "offline", "sleeping"]
+    },
+    "firmwareVersion": {
+      "type": "string",
+      "description": "Current firmware version installed on the device."
+    },
+    "totalStorage": {
+      "type": "integer",
+      "description": "Total storage capacity in bytes."
+    },
+    "usedStorage": {
+      "type": "integer",
+      "description": "Used storage in bytes."
+    }
+  },
+  "required": ["id", "name", "externalURI", "status"]
+}

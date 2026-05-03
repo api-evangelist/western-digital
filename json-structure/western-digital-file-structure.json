@@ -1,0 +1,15 @@
+{
+  "name": "File Item",
+  "description": "WD My Cloud Home file and folder structure.",
+  "fields": [
+    {"name": "id", "type": "string", "required": true, "description": "Unique file/folder identifier."},
+    {"name": "name", "type": "string", "required": true, "description": "File or folder name."},
+    {"name": "mimeType", "type": "string", "required": true, "description": "MIME type. 'application/x.wd.dir' for folders."},
+    {"name": "size", "type": "integer", "required": false, "description": "File size in bytes."},
+    {"name": "parentId", "type": "string", "required": true, "description": "Parent folder ID. 'root' for top-level."},
+    {"name": "createdTime", "type": "date-time", "required": false, "description": "File creation timestamp."},
+    {"name": "modifiedTime", "type": "date-time", "required": false, "description": "Last modified timestamp."},
+    {"name": "thumbnailUrl", "type": "uri", "required": false, "description": "Thumbnail URL for media files."},
+    {"name": "downloadUrl", "type": "uri", "required": false, "description": "Direct download URL."}
+  ]
+}

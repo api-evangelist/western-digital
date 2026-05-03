@@ -1,0 +1,121 @@
+vocabulary:
+  provider: Western Digital
+  description: >-
+    Vocabulary and taxonomy for Western Digital's developer platform, focusing
+    on the WD My Cloud Home REST API for personal cloud storage and NAS
+    device management.
+  tags:
+    - Cloud Storage
+    - File Management
+    - NAS
+    - Consumer
+    - OAuth
+    - REST API
+  terms:
+    - term: My Cloud Home
+      definition: >-
+        Western Digital's personal cloud storage product line — NAS devices
+        that allow users to store files at home and access them remotely via
+        the cloud.
+      tags:
+        - NAS
+        - Cloud Storage
+
+    - term: NAS
+      definition: >-
+        Network-Attached Storage — a file-level data storage server connected
+        to a network providing data access to a heterogeneous group of clients.
+      tags:
+        - NAS
+        - Storage
+
+    - term: OAuth 2.0
+      definition: >-
+        The authorization framework used by WD My Cloud Home API. Applications
+        obtain access tokens via the authorization code flow using scopes such
+        as nas_read_only and nas_read_write.
+      tags:
+        - Authentication
+        - OAuth
+
+    - term: Bearer Token
+      definition: >-
+        An OAuth 2.0 access token passed in the Authorization HTTP header as
+        "Bearer {token}" to authenticate API requests to the WD My Cloud Home
+        device.
+      tags:
+        - Authentication
+        - Security
+
+    - term: internalURI
+      definition: >-
+        The device endpoint URL used when the application is on the same
+        network as the My Cloud Home device (local network access).
+      tags:
+        - Device
+        - Networking
+
+    - term: externalURI
+      definition: >-
+        The device endpoint URL used when the application is NOT on the same
+        network as the My Cloud Home device (remote access over internet).
+      tags:
+        - Device
+        - Networking
+
+    - term: MIME Type
+      definition: >-
+        Media type identifier for files. WD uses "application/x.wd.dir" to
+        represent folders in the My Cloud Home file system.
+      tags:
+        - File Management
+
+    - term: Thumbnail
+      definition: >-
+        A reduced-size preview image of a photo or video file, generated
+        automatically by the My Cloud Home device for media files.
+      tags:
+        - File Management
+        - Media
+
+    - term: Page Token
+      definition: >-
+        A pagination cursor returned in list API responses. Pass it in
+        subsequent requests to retrieve the next page of results.
+      tags:
+        - Pagination
+        - API
+
+    - term: Root Folder
+      definition: >-
+        The top-level folder on a My Cloud Home device, referenced by the
+        special ID value "root" in API requests.
+      tags:
+        - File Management
+
+    - term: Share
+      definition: >-
+        A shareable URL created for one or more files, allowing recipients
+        to access files without requiring authentication. Can include an
+        expiration date.
+      tags:
+        - Sharing
+        - Collaboration
+
+    - term: Configuration Service
+      definition: >-
+        The config.mycloud.com service that My Cloud Home applications call
+        first to dynamically resolve service endpoint URLs before making
+        device API calls.
+      tags:
+        - API
+        - Architecture
+
+    - term: ZNS SSD
+      definition: >-
+        Zoned Namespace Solid-State Drive — a storage technology supported
+        by Western Digital's ZenFS (RocksDB storage backend) enabling
+        efficient data placement on flash storage.
+      tags:
+        - Storage
+        - Hardware

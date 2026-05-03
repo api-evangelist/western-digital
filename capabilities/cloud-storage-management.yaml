@@ -1,0 +1,216 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "WD My Cloud Home Storage Management"
+  description: >-
+    Workflow capability for managing personal cloud storage on Western Digital
+    My Cloud Home devices. Covers file browsing, upload, download, sharing, and
+    search for consumers and application developers integrating with WD NAS
+    devices.
+  tags:
+    - Cloud Storage
+    - File Management
+    - NAS
+    - Sharing
+    - Consumer
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+binds:
+  - namespace: env
+    keys:
+      WD_MY_CLOUD_ACCESS_TOKEN: WD_MY_CLOUD_ACCESS_TOKEN
+
+capability:
+  consumes:
+    - import: wd-my-cloud-home
+      location: ./shared/my-cloud-home.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: wd-storage-management-api
+      description: "Unified REST API for WD My Cloud Home storage management workflows."
+      resources:
+        - path: /v1/files
+          name: files
+          description: Browse and manage files and folders on the NAS device.
+          operations:
+            - method: GET
+              name: list-files
+              description: List files and folders in a directory.
+              call: "wd-my-cloud-home.list-files"
+              with:
+                ids: "rest.folder_id"
+                pageToken: "rest.page_token"
+                limit: "rest.limit"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-file
+              description: Upload a file or create a folder.
+              call: "wd-my-cloud-home.create-file"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/files/{fileId}
+          name: file
+          description: Operate on a specific file or folder.
+          operations:
+            - method: GET
+              name: get-file
+              description: Get metadata for a file or folder.
+              call: "wd-my-cloud-home.get-file"
+              with:
+                fileId: "rest.fileId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: DELETE
+              name: delete-file
+              description: Permanently delete a file or folder.
+              call: "wd-my-cloud-home.delete-file"
+              with:
+                fileId: "rest.fileId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/files/{fileId}/content
+          name: file-content
+          description: Upload and download file content.
+          operations:
+            - method: GET
+              name: download-file
+              description: Download the binary content of a file.
+              call: "wd-my-cloud-home.download-file"
+              with:
+                fileId: "rest.fileId"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/search
+          name: search
+          description: Search for files by parent folder.
+          operations:
+            - method: GET
+              name: search-files-by-parent
+              description: Search files within a specified parent folder.
+              call: "wd-my-cloud-home.search-files-by-parent"
+              with:
+                ids: "rest.parent_ids"
+                limit: "rest.limit"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/shares
+          name: shares
+          description: Create and manage file share links.
+          operations:
+            - method: POST
+              name: create-share
+              description: Create a shareable link for one or more files.
+              call: "wd-my-cloud-home.create-share"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: wd-storage-management-mcp
+      transport: http
+      description: "MCP server for AI-assisted WD My Cloud Home storage management."
+      tools:
+        - name: list-files
+          description: >-
+            List files and folders in a My Cloud Home directory. Pass "root"
+            as folder_id to list the root directory.
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "wd-my-cloud-home.list-files"
+          with:
+            ids: "tools.folder_id"
+            limit: "tools.limit"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-file
+          description: Get metadata (name, size, type, dates) for a specific file or folder.
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "wd-my-cloud-home.get-file"
+          with:
+            fileId: "tools.fileId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-file
+          description: Upload a new file or create a folder on My Cloud Home.
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "wd-my-cloud-home.create-file"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: delete-file
+          description: Permanently delete a file or folder from My Cloud Home.
+          hints:
+            readOnly: false
+            destructive: true
+            idempotent: true
+          call: "wd-my-cloud-home.delete-file"
+          with:
+            fileId: "tools.fileId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: download-file
+          description: Download the content of a file stored on My Cloud Home.
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "wd-my-cloud-home.download-file"
+          with:
+            fileId: "tools.fileId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: search-files-by-parent
+          description: >-
+            Search for files within a specified parent folder on My Cloud Home.
+            Useful for locating files in nested directory structures.
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "wd-my-cloud-home.search-files-by-parent"
+          with:
+            ids: "tools.parent_ids"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-share
+          description: >-
+            Create a shareable URL for one or more files on My Cloud Home.
+            Optionally set an expiration date.
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: "wd-my-cloud-home.create-share"
+          outputParameters:
+            - type: object
+              mapping: "$."

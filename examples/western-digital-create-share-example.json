@@ -1,0 +1,38 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://device.mycloud.com/v1/shares",
+    "headers": {
+      "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    "body": {
+      "ownerId": "user_abc123",
+      "deviceId": "device_xyz789",
+      "fileIds": [
+        "f1a2b3c4-d5e6-7890-abcd-ef1234567890",
+        "a9b8c7d6-e5f4-3210-fedc-ba9876543210"
+      ],
+      "expirationDate": "2026-06-01T00:00:00Z"
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "id": "share_def456",
+      "shareUrl": "https://mycloud.com/s/share_def456_token",
+      "ownerId": "user_abc123",
+      "deviceId": "device_xyz789",
+      "fileIds": [
+        "f1a2b3c4-d5e6-7890-abcd-ef1234567890",
+        "a9b8c7d6-e5f4-3210-fedc-ba9876543210"
+      ],
+      "createdTime": "2026-05-03T12:00:00Z",
+      "expirationDate": "2026-06-01T00:00:00Z"
+    }
+  }
+}
