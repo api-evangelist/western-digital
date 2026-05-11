@@ -56,3 +56,48 @@ common:
     url: https://github.com/westerndigitalcorporation
   - type: LinkedIn
     url: https://www.linkedin.com/company/western-digital
+  - type: Integrations
+    url: https://www.westerndigital.com/company/partners
+integrations:
+  - name: earn-redeem-grow-pro-rewards
+  - name: section-image
+  - name: AMD
+  - name: Broadcom
+  - name: Microsemi
+  - name: Microsoft
+  - name: Oracle
+  - name: SAP
+  - name: Veeam
+  - name: VMWare
+  - name: AC&NC
+  - name: Aerospike
+  - name: Arcserve
+  - name: ATTO
+  - name: Caringo
+  - name: CloudFerro
+  - name: Commvault
+  - name: CTERA Networks
+  - name: DataCore
+  - name: DataON
+  - name: Docker
+  - name: Excelero
+  - name: HighPoint
+  - name: Hewlett Packard Enterprise
+  - name: IBM Spectrum Protect
+  - name: iTernity
+  - name: LIQID
+  - name: Marvell
+  - name: Mellanox
+  - name: NetApp AltaVault
+  - name: OSNexus
+  - name: RAIDIX
+  - name: Red Hat
+  - name: Rozo Systems
+  - name: ScaleMP
+  - name: Scality
+  - name: SIOS
+  - name: Splunk
+  - name: Starwind
+  - name: SUSE
+  - name: Veritas NetBackup
+  - name: ethisphere-award
