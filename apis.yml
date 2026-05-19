@@ -1,103 +1,111 @@
 aid: western-digital
 url: https://raw.githubusercontent.com/api-evangelist/western-digital/refs/heads/main/apis.yml
-modified: '2026-05-03'
-description: >-
-  Western Digital is a global leader in data infrastructure, providing storage
-  solutions including hard disk drives, solid state drives, flash memory, and
-  data center systems. Their developer program exposes the WD My Cloud Home
-  REST API enabling third-party applications to manage files, folders,
-  thumbnails, shares, and user accounts stored on WD My Cloud Home devices.
+modified: '2026-05-19'
+description: Western Digital is a global leader in data infrastructure, providing storage solutions including hard disk drives,
+  solid state drives, flash memory, and data center systems. Their developer program exposes the WD My Cloud Home REST API
+  enabling third-party applications to manage files, folders, thumbnails, shares, and user accounts stored on WD My Cloud
+  Home devices.
 apis:
-  - aid: western-digital:my-cloud-home
-    name: WD My Cloud Home API
-    description: >-
-      The WD My Cloud Home REST API enables off-device applications to manage
-      files and folders on a user's My Cloud Home NAS device. It supports file
-      upload, download, listing, search, sharing, thumbnails, and device
-      discovery via OAuth 2.0 authentication. Applications call a configuration
-      endpoint to obtain service URLs dynamically.
-    humanURL: https://developer.westerndigital.com/develop/wd-my-cloud-home/
-    baseURL: https://device.mycloud.com
-    tags:
-      - Cloud Storage
-      - File Management
-      - NAS
-      - Consumer
-    properties:
-      - type: Documentation
-        url: https://developer.westerndigital.com/develop/wd-my-cloud-home/
-      - type: Portal
-        url: https://developer.westerndigital.com/develop/wd/api.html
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/western-digital/refs/heads/main/openapi/western-digital-my-cloud-home-openapi.yml
-      - type: SDK
-        url: https://developer.westerndigital.com/develop/wd/sdk.html
-      - type: GettingStarted
-        url: https://developer.westerndigital.com/develop/wd-my-cloud-home/discover/off-device-applications/creating-off-device-apps.html
-    contact:
-      - FN: Western Digital Developer Support
-        url: https://developer.westerndigital.com/develop/wd-my-cloud-home/forms.html
-        email: ''
-
-common:
-  - type: Website
-    url: https://www.westerndigital.com
-  - type: Portal
-    url: https://developer.westerndigital.com
+- aid: western-digital:my-cloud-home
+  name: WD My Cloud Home API
+  description: The WD My Cloud Home REST API enables off-device applications to manage files and folders on a user's My Cloud
+    Home NAS device. It supports file upload, download, listing, search, sharing, thumbnails, and device discovery via OAuth
+    2.0 authentication. Applications call a configuration endpoint to obtain service URLs dynamically.
+  humanURL: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+  baseURL: https://device.mycloud.com
+  tags:
+  - Cloud Storage
+  - File Management
+  - NAS
+  - Consumer
+  properties:
   - type: Documentation
     url: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+  - type: Portal
+    url: https://developer.westerndigital.com/develop/wd/api.html
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/api-evangelist/western-digital/refs/heads/main/openapi/western-digital-my-cloud-home-openapi.yml
   - type: SDK
     url: https://developer.westerndigital.com/develop/wd/sdk.html
-  - type: PrivacyPolicy
-    url: https://www.westerndigital.com/legal/privacy-statement
-  - type: TermsOfService
-    url: https://www.westerndigital.com/legal/terms-of-use
-  - type: GitHub
-    url: https://github.com/westerndigitalcorporation
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/western-digital
-  - type: Integrations
-    url: https://www.westerndigital.com/company/partners
+  - type: GettingStarted
+    url: https://developer.westerndigital.com/develop/wd-my-cloud-home/discover/off-device-applications/creating-off-device-apps.html
+  - type: NaftikoCapability
+    url: capabilities/my-cloud-home-authentication.yaml
+  - type: NaftikoCapability
+    url: capabilities/my-cloud-home-configuration.yaml
+  - type: NaftikoCapability
+    url: capabilities/my-cloud-home-device.yaml
+  - type: NaftikoCapability
+    url: capabilities/my-cloud-home-files.yaml
+  - type: NaftikoCapability
+    url: capabilities/my-cloud-home-search.yaml
+  - type: NaftikoCapability
+    url: capabilities/my-cloud-home-sharing.yaml
+  - type: NaftikoCapability
+    url: capabilities/my-cloud-home-user.yaml
+  contact:
+  - FN: Western Digital Developer Support
+    url: https://developer.westerndigital.com/develop/wd-my-cloud-home/forms.html
+    email: ''
+common:
+- type: Website
+  url: https://www.westerndigital.com
+- type: Portal
+  url: https://developer.westerndigital.com
+- type: Documentation
+  url: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+- type: SDK
+  url: https://developer.westerndigital.com/develop/wd/sdk.html
+- type: PrivacyPolicy
+  url: https://www.westerndigital.com/legal/privacy-statement
+- type: TermsOfService
+  url: https://www.westerndigital.com/legal/terms-of-use
+- type: GitHub
+  url: https://github.com/westerndigitalcorporation
+- type: LinkedIn
+  url: https://www.linkedin.com/company/western-digital
+- type: Integrations
+  url: https://www.westerndigital.com/company/partners
 integrations:
-  - name: earn-redeem-grow-pro-rewards
-  - name: section-image
-  - name: AMD
-  - name: Broadcom
-  - name: Microsemi
-  - name: Microsoft
-  - name: Oracle
-  - name: SAP
-  - name: Veeam
-  - name: VMWare
-  - name: AC&NC
-  - name: Aerospike
-  - name: Arcserve
-  - name: ATTO
-  - name: Caringo
-  - name: CloudFerro
-  - name: Commvault
-  - name: CTERA Networks
-  - name: DataCore
-  - name: DataON
-  - name: Docker
-  - name: Excelero
-  - name: HighPoint
-  - name: Hewlett Packard Enterprise
-  - name: IBM Spectrum Protect
-  - name: iTernity
-  - name: LIQID
-  - name: Marvell
-  - name: Mellanox
-  - name: NetApp AltaVault
-  - name: OSNexus
-  - name: RAIDIX
-  - name: Red Hat
-  - name: Rozo Systems
-  - name: ScaleMP
-  - name: Scality
-  - name: SIOS
-  - name: Splunk
-  - name: Starwind
-  - name: SUSE
-  - name: Veritas NetBackup
-  - name: ethisphere-award
+- name: earn-redeem-grow-pro-rewards
+- name: section-image
+- name: AMD
+- name: Broadcom
+- name: Microsemi
+- name: Microsoft
+- name: Oracle
+- name: SAP
+- name: Veeam
+- name: VMWare
+- name: AC&NC
+- name: Aerospike
+- name: Arcserve
+- name: ATTO
+- name: Caringo
+- name: CloudFerro
+- name: Commvault
+- name: CTERA Networks
+- name: DataCore
+- name: DataON
+- name: Docker
+- name: Excelero
+- name: HighPoint
+- name: Hewlett Packard Enterprise
+- name: IBM Spectrum Protect
+- name: iTernity
+- name: LIQID
+- name: Marvell
+- name: Mellanox
+- name: NetApp AltaVault
+- name: OSNexus
+- name: RAIDIX
+- name: Red Hat
+- name: Rozo Systems
+- name: ScaleMP
+- name: Scality
+- name: SIOS
+- name: Splunk
+- name: Starwind
+- name: SUSE
+- name: Veritas NetBackup
+- name: ethisphere-award

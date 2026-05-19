@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: WD My Cloud Home API — Sharing
+  description: 'WD My Cloud Home API — Sharing. 1 operations. Lead operation: Create Share. Self-contained Naftiko capability
+    covering one Western Digital business surface.'
+  tags:
+  - Western Digital
+  - Sharing
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    WESTERN_DIGITAL_API_KEY: WESTERN_DIGITAL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: my-cloud-home-sharing
+    baseUri: https://config.mycloud.com
+    description: WD My Cloud Home API — Sharing business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-shares
+      path: /v1/shares
+      operations:
+      - name: createshare
+        method: POST
+        description: Create Share
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.WESTERN_DIGITAL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: my-cloud-home-sharing-rest
+    port: 8080
+    description: REST adapter for WD My Cloud Home API — Sharing. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v1/shares
+      name: v1-shares
+      description: REST surface for v1-shares.
+      operations:
+      - method: POST
+        name: createshare
+        description: Create Share
+        call: my-cloud-home-sharing.createshare
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: my-cloud-home-sharing-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for WD My Cloud Home API — Sharing. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: create-share
+      description: Create Share
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: my-cloud-home-sharing.createshare
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

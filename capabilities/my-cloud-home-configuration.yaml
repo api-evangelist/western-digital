@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: WD My Cloud Home API — Configuration
+  description: 'WD My Cloud Home API — Configuration. 1 operations. Lead operation: Get Service Configuration. Self-contained
+    Naftiko capability covering one Western Digital business surface.'
+  tags:
+  - Western Digital
+  - Configuration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    WESTERN_DIGITAL_API_KEY: WESTERN_DIGITAL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: my-cloud-home-configuration
+    baseUri: https://config.mycloud.com
+    description: WD My Cloud Home API — Configuration business capability. Self-contained, no shared references.
+    resources:
+    - name: config-v1-config
+      path: /config/v1/config
+      operations:
+      - name: getserviceconfiguration
+        method: GET
+        description: Get Service Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.WESTERN_DIGITAL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: my-cloud-home-configuration-rest
+    port: 8080
+    description: REST adapter for WD My Cloud Home API — Configuration. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/config/v1/config
+      name: config-v1-config
+      description: REST surface for config-v1-config.
+      operations:
+      - method: GET
+        name: getserviceconfiguration
+        description: Get Service Configuration
+        call: my-cloud-home-configuration.getserviceconfiguration
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: my-cloud-home-configuration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for WD My Cloud Home API — Configuration. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-service-configuration
+      description: Get Service Configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: my-cloud-home-configuration.getserviceconfiguration
+      outputParameters:
+      - type: object
+        mapping: $.
