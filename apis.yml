@@ -30,7 +30,7 @@ apis:
       - type: OpenAPI
         url: >-
           https://raw.githubusercontent.com/api-evangelist/western-digital/refs/heads/main/openapi/western-digital-my-cloud-home-openapi.yml
-      - type: SDK
+      - type: SDKs
         url: https://developer.westerndigital.com/develop/wd/sdk.html
       - type: GettingStarted
         url: >-
@@ -46,7 +46,7 @@ common:
     url: https://developer.westerndigital.com
   - type: Documentation
     url: https://developer.westerndigital.com/develop/wd-my-cloud-home/
-  - type: SDK
+  - type: SDKs
     url: https://developer.westerndigital.com/develop/wd/sdk.html
   - type: PrivacyPolicy
     url: https://www.westerndigital.com/legal/privacy-statement
