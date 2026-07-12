@@ -40,6 +40,10 @@ apis:
         url: https://developer.westerndigital.com/develop/wd-my-cloud-home/forms.html
         email: ''
 common:
+  - type: DomainSecurity
+    url: security/western-digital-domain-security.yml
+  - type: Authentication
+    url: authentication/western-digital-authentication.yml
   - type: Website
     url: https://www.westerndigital.com
   - type: Portal
@@ -58,6 +62,8 @@ common:
     url: https://www.linkedin.com/company/western-digital
   - type: Integrations
     url: https://www.westerndigital.com/company/partners
+  - url: https://blog.westerndigital.com/feed/
+    type: Blog
 integrations:
   - name: earn-redeem-grow-pro-rewards
   - name: section-image
