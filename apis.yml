@@ -40,6 +40,8 @@ apis:
         url: https://developer.westerndigital.com/develop/wd-my-cloud-home/forms.html
         email: ''
 common:
+  - type: AgenticAccess
+    url: agentic-access/western-digital-agentic-access.yml
   - type: DomainSecurity
     url: security/western-digital-domain-security.yml
   - type: Authentication
