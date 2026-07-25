@@ -1,0 +1,107 @@
+openapi: 3.1.0
+info:
+  title: WD My Cloud Home Authentication Sharing API
+  description: The WD My Cloud Home REST API enables off-device applications to manage files and folders on a user's My Cloud Home NAS device. It supports file upload, download, listing, search, sharing, thumbnails, and device discovery via OAuth 2.0 authentication.
+  version: v2
+  termsOfService: https://www.westerndigital.com/legal/terms-of-use
+  contact:
+    name: Western Digital Developer Support
+    url: https://developer.westerndigital.com/develop/wd-my-cloud-home/forms.html
+  license:
+    name: Western Digital Developer Terms
+    url: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+servers:
+- url: https://config.mycloud.com
+  description: Configuration service — call first to get device and auth URLs
+- url: https://device.mycloud.com
+  description: Device service (dynamically resolved per device)
+- url: https://wdc.auth0.com
+  description: Authentication service
+tags:
+- name: Sharing
+  description: Create and manage file shares.
+paths:
+  /v1/shares:
+    post:
+      operationId: createShare
+      summary: Create Share
+      description: Creates a share link for one or more files on the device.
+      tags:
+      - Sharing
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShareCreateRequest'
+            example:
+              ownerId: user123
+              deviceId: device456
+              fileIds:
+              - file789
+              - file101
+      responses:
+        '201':
+          description: Share created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Share'
+        '401':
+          description: Unauthorized.
+components:
+  schemas:
+    ShareCreateRequest:
+      type: object
+      properties:
+        ownerId:
+          type: string
+          description: Owner user ID.
+        deviceId:
+          type: string
+          description: Device ID where the files reside.
+        fileIds:
+          type: array
+          items:
+            type: string
+          description: List of file IDs to share.
+        expirationDate:
+          type: string
+          format: date-time
+          description: Optional share expiration date.
+      required:
+      - ownerId
+      - deviceId
+      - fileIds
+    Share:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique share identifier.
+        shareUrl:
+          type: string
+          format: uri
+          description: Public URL for the share.
+        ownerId:
+          type: string
+        deviceId:
+          type: string
+        fileIds:
+          type: array
+          items:
+            type: string
+        createdTime:
+          type: string
+          format: date-time
+        expirationDate:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 Bearer token obtained via the /oauth/token endpoint. Include in Authorization header as "Bearer {token}".

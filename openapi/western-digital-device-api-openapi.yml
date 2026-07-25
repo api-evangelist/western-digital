@@ -1,0 +1,97 @@
+openapi: 3.1.0
+info:
+  title: WD My Cloud Home Authentication Device API
+  description: The WD My Cloud Home REST API enables off-device applications to manage files and folders on a user's My Cloud Home NAS device. It supports file upload, download, listing, search, sharing, thumbnails, and device discovery via OAuth 2.0 authentication.
+  version: v2
+  termsOfService: https://www.westerndigital.com/legal/terms-of-use
+  contact:
+    name: Western Digital Developer Support
+    url: https://developer.westerndigital.com/develop/wd-my-cloud-home/forms.html
+  license:
+    name: Western Digital Developer Terms
+    url: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+servers:
+- url: https://config.mycloud.com
+  description: Configuration service — call first to get device and auth URLs
+- url: https://device.mycloud.com
+  description: Device service (dynamically resolved per device)
+- url: https://wdc.auth0.com
+  description: Authentication service
+tags:
+- name: Device
+  description: Device registration and discovery.
+paths:
+  /device/v1/user:
+    get:
+      operationId: getUserDevices
+      summary: List User Devices
+      description: Returns all My Cloud Home devices associated with the authenticated user.
+      tags:
+      - Device
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: List of devices associated with the user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceListResponse'
+        '401':
+          description: Unauthorized.
+  /device/v1/device:
+    get:
+      operationId: getDevice
+      summary: Get Device Details
+      description: Returns details about a specific My Cloud Home device.
+      tags:
+      - Device
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Device details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '401':
+          description: Unauthorized.
+components:
+  schemas:
+    Device:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique device identifier.
+        name:
+          type: string
+          description: User-defined device name.
+        model:
+          type: string
+          description: Device model name.
+        internalURI:
+          type: string
+          format: uri
+          description: Device endpoint for same-network access.
+        externalURI:
+          type: string
+          format: uri
+          description: Device endpoint for remote access.
+        status:
+          type: string
+          description: Device online/offline status.
+    DeviceListResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Device'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 Bearer token obtained via the /oauth/token endpoint. Include in Authorization header as "Bearer {token}".
