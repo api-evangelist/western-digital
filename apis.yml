@@ -1,4 +1,18 @@
 aid: western-digital
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/western-digital.png
 tags:
   - Fortune 500
 url: https://raw.githubusercontent.com/api-evangelist/western-digital/refs/heads/main/apis.yml
@@ -9,36 +23,139 @@ description: >-
   API enabling third-party applications to manage files, folders, thumbnails, shares, and user accounts stored on WD My
   Cloud Home devices.
 apis:
-  - aid: western-digital:my-cloud-home
-    name: WD My Cloud Home API
-    description: >-
-      The WD My Cloud Home REST API enables off-device applications to manage files and folders on a user's My Cloud
-      Home NAS device. It supports file upload, download, listing, search, sharing, thumbnails, and device discovery via
-      OAuth 2.0 authentication. Applications call a configuration endpoint to obtain service URLs dynamically.
-    humanURL: https://developer.westerndigital.com/develop/wd-my-cloud-home/
-    baseURL: https://device.mycloud.com
-    tags:
-      - Cloud Storage
-      - File Management
-      - NAS
-      - Consumer
-    properties:
-      - type: Documentation
-        url: https://developer.westerndigital.com/develop/wd-my-cloud-home/
-      - type: Portal
-        url: https://developer.westerndigital.com/develop/wd/api.html
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/western-digital/refs/heads/main/openapi/western-digital-my-cloud-home-openapi.yml
-      - type: SDKs
-        url: https://developer.westerndigital.com/develop/wd/sdk.html
-      - type: GettingStarted
-        url: >-
-          https://developer.westerndigital.com/develop/wd-my-cloud-home/discover/off-device-applications/creating-off-device-apps.html
-    contact:
-      - FN: Western Digital Developer Support
-        url: https://developer.westerndigital.com/develop/wd-my-cloud-home/forms.html
-        email: ''
+- aid: western-digital:western-digital-authentication-api
+  name: western-digital Authentication API
+  description: OAuth 2.0 authorization and token operations.
+  humanURL: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+  baseURL: https://device.mycloud.com
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/western-digital-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+  - type: Portal
+    url: https://developer.westerndigital.com/develop/wd/api.html
+  - type: SDKs
+    url: https://developer.westerndigital.com/develop/wd/sdk.html
+  - type: GettingStarted
+    url: >-
+      https://developer.westerndigital.com/develop/wd-my-cloud-home/discover/off-device-applications/creating-off-device-apps.html
+- aid: western-digital:western-digital-configuration-api
+  name: western-digital Configuration API
+  description: Retrieve dynamic service endpoint configuration.
+  humanURL: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+  baseURL: https://device.mycloud.com
+  tags:
+  - Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/western-digital-configuration-api-openapi.yml
+  - type: Documentation
+    url: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+  - type: Portal
+    url: https://developer.westerndigital.com/develop/wd/api.html
+  - type: SDKs
+    url: https://developer.westerndigital.com/develop/wd/sdk.html
+  - type: GettingStarted
+    url: >-
+      https://developer.westerndigital.com/develop/wd-my-cloud-home/discover/off-device-applications/creating-off-device-apps.html
+- aid: western-digital:western-digital-device-api
+  name: western-digital Device API
+  description: Device registration and discovery.
+  humanURL: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+  baseURL: https://device.mycloud.com
+  tags:
+  - Device
+  properties:
+  - type: OpenAPI
+    url: openapi/western-digital-device-api-openapi.yml
+  - type: Documentation
+    url: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+  - type: Portal
+    url: https://developer.westerndigital.com/develop/wd/api.html
+  - type: SDKs
+    url: https://developer.westerndigital.com/develop/wd/sdk.html
+  - type: GettingStarted
+    url: >-
+      https://developer.westerndigital.com/develop/wd-my-cloud-home/discover/off-device-applications/creating-off-device-apps.html
+- aid: western-digital:western-digital-files-api
+  name: western-digital Files API
+  description: File and folder CRUD operations.
+  humanURL: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+  baseURL: https://device.mycloud.com
+  tags:
+  - Files
+  properties:
+  - type: OpenAPI
+    url: openapi/western-digital-files-api-openapi.yml
+  - type: Documentation
+    url: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+  - type: Portal
+    url: https://developer.westerndigital.com/develop/wd/api.html
+  - type: SDKs
+    url: https://developer.westerndigital.com/develop/wd/sdk.html
+  - type: GettingStarted
+    url: >-
+      https://developer.westerndigital.com/develop/wd-my-cloud-home/discover/off-device-applications/creating-off-device-apps.html
+- aid: western-digital:western-digital-search-api
+  name: western-digital Search API
+  description: Search files by parent directory.
+  humanURL: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+  baseURL: https://device.mycloud.com
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/western-digital-search-api-openapi.yml
+  - type: Documentation
+    url: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+  - type: Portal
+    url: https://developer.westerndigital.com/develop/wd/api.html
+  - type: SDKs
+    url: https://developer.westerndigital.com/develop/wd/sdk.html
+  - type: GettingStarted
+    url: >-
+      https://developer.westerndigital.com/develop/wd-my-cloud-home/discover/off-device-applications/creating-off-device-apps.html
+- aid: western-digital:western-digital-sharing-api
+  name: western-digital Sharing API
+  description: Create and manage file shares.
+  humanURL: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+  baseURL: https://device.mycloud.com
+  tags:
+  - Sharing
+  properties:
+  - type: OpenAPI
+    url: openapi/western-digital-sharing-api-openapi.yml
+  - type: Documentation
+    url: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+  - type: Portal
+    url: https://developer.westerndigital.com/develop/wd/api.html
+  - type: SDKs
+    url: https://developer.westerndigital.com/develop/wd/sdk.html
+  - type: GettingStarted
+    url: >-
+      https://developer.westerndigital.com/develop/wd-my-cloud-home/discover/off-device-applications/creating-off-device-apps.html
+- aid: western-digital:western-digital-user-api
+  name: western-digital User API
+  description: User account information.
+  humanURL: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+  baseURL: https://device.mycloud.com
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/western-digital-user-api-openapi.yml
+  - type: Documentation
+    url: https://developer.westerndigital.com/develop/wd-my-cloud-home/
+  - type: Portal
+    url: https://developer.westerndigital.com/develop/wd/api.html
+  - type: SDKs
+    url: https://developer.westerndigital.com/develop/wd/sdk.html
+  - type: GettingStarted
+    url: >-
+      https://developer.westerndigital.com/develop/wd-my-cloud-home/discover/off-device-applications/creating-off-device-apps.html
 common:
   - type: AgenticAccess
     url: agentic-access/western-digital-agentic-access.yml
