@@ -1,0 +1,26 @@
+{
+  "provider": "western-digital",
+  "sources": [
+    "western-digital-authentication-api-openapi.yml",
+    "western-digital-configuration-api-openapi.yml",
+    "western-digital-device-api-openapi.yml",
+    "western-digital-files-api-openapi.yml",
+    "western-digital-search-api-openapi.yml",
+    "western-digital-sharing-api-openapi.yml",
+    "western-digital-user-api-openapi.yml"
+  ],
+  "outputs": [
+    "western-digital-authentication-api-openapi.yml",
+    "western-digital-configuration-api-openapi.yml",
+    "western-digital-device-api-openapi.yml",
+    "western-digital-files-api-openapi.yml",
+    "western-digital-search-api-openapi.yml",
+    "western-digital-sharing-api-openapi.yml",
+    "western-digital-user-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
