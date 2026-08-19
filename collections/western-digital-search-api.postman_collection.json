@@ -1,0 +1,211 @@
+{
+  "item": [
+    {
+      "id": "bebf01ce-5bb7-4ab9-bde1-9744774d9939",
+      "name": "Search",
+      "description": {
+        "content": "Search files by parent directory.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "433f3d69-1a16-40bd-ad68-cc9737728779",
+          "name": "Search Files by Parent",
+          "request": {
+            "name": "Search Files by Parent",
+            "description": {
+              "content": "Returns files within a specified parent folder, enabling directory traversal.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sdk",
+                "v2",
+                "filesSearch",
+                "parents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of parent folder IDs to search within. Use \"root\" for the root folder."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>",
+                  "description": "Pagination token."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum number of results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1ccb634f-2c0f-4e76-a1c2-ee17f8b9410f",
+              "name": "Files within the specified parent folder.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sdk",
+                    "v2",
+                    "filesSearch",
+                    "parents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"files\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"mimeType\": \"string\",\n      \"size\": 3458,\n      \"parentId\": \"string\",\n      \"createdTime\": \"1960-04-14T07:33:17.807Z\",\n      \"modifiedTime\": \"1974-01-03T08:32:49.795Z\",\n      \"thumbnailUrl\": \"https://jTkGjNcoEhxJGpsyFsXOXY.affuAeb4JgfCXWHuRNySIkOZFijuzfv8lR8YyTDOpRqzBd7PKsrVUby-mXCULmE8,xRjzl\",\n      \"downloadUrl\": \"http://WYDPSCsUmEXlPAGkx.huoqGNFf,T9FPEI.JaEAkzVOoIGL7CBprDz9Kx50bV4Rcz+UD3\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"mimeType\": \"string\",\n      \"size\": 9143,\n      \"parentId\": \"string\",\n      \"createdTime\": \"1954-05-19T11:59:26.208Z\",\n      \"modifiedTime\": \"1988-03-30T16:53:58.343Z\",\n      \"thumbnailUrl\": \"http://DwoKAnVYFUDjeJnsUzFtawX.czaj7ZcfmRpmVqUcjSsEcfE4e\",\n      \"downloadUrl\": \"http://piVLxjnGMTMhizwssaEvcudQT.tsmyEKv2bgMUUDzRdnSBuGAF15DT,QdHmD+.g,odstRScqZeBcod4wBkruPtL4w\"\n    }\n  ],\n  \"pageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cba5c7af-487e-453a-aeac-0a3cea0ed2d7",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sdk",
+                    "v2",
+                    "filesSearch",
+                    "parents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://config.mycloud.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "96defe3a-fd35-4e51-a5c7-fc01023b2452",
+    "name": "WD My Cloud Home Authentication Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The WD My Cloud Home REST API enables off-device applications to manage files and folders on a user's My Cloud Home NAS device. It supports file upload, download, listing, search, sharing, thumbnails, and device discovery via OAuth 2.0 authentication.\n\nContact Support:\n Name: Western Digital Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "item": [
+    {
+      "id": "281bc34d-4bdd-47a4-8a17-d48d4feadae9",
+      "name": "Device",
+      "description": {
+        "content": "Device registration and discovery.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "76e02cd3-208e-4b66-8e7b-358be7995750",
+          "name": "List User Devices",
+          "request": {
+            "name": "List User Devices",
+            "description": {
+              "content": "Returns all My Cloud Home devices associated with the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "v1",
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "83d6805d-74c1-47d7-949b-c6e80cc6a95a",
+              "name": "List of devices associated with the user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v1",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"model\": \"string\",\n      \"internalURI\": \"http://xSPg.yhaI4LgMOf5QAhAciFBEMgZOiXSSJype67GUnVe-aid7pKHgVbEAChQh\",\n      \"externalURI\": \"https://SSgIKiEwdwnBjTMTT.epnpsR3PPGqun9Y2aoXfIKxjGI8.yjdtdtIDAmXofNfYV..Gp,mnH-6QVqgR3CmsNR+P\",\n      \"status\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"model\": \"string\",\n      \"internalURI\": \"https://GmyDG.jgchBKPdNKEWPkT\",\n      \"externalURI\": \"http://bZjsLcDrw.lwzjfB1uqBEAPHXleL,oIyaL9bm,Q+6\",\n      \"status\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b846e43-086b-4119-8479-68cbf1f73751",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v1",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7296d23-d5a5-45bd-8a79-d87d64322abf",
+          "name": "Get Device Details",
+          "request": {
+            "name": "Get Device Details",
+            "description": {
+              "content": "Returns details about a specific My Cloud Home device.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "device",
+                "v1",
+                "device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2be11222-ac10-47cd-8130-0b1cbf490def",
+              "name": "Device details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v1",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"model\": \"string\",\n  \"internalURI\": \"http://XFEqhddWhMrDiEoWIEaRowxOGzX.oyauGq40QXdns.12FteMIqEcXJsB1isQU5xIYeRrYN1zVpzbrKlCDRA\",\n  \"externalURI\": \"https://esllojkJAkVKYDDuiJd.uhztsbQ5XRlCDW3KokR14.jTi6Im,cn2sa3.6wk4yPexu7H2enL\",\n  \"status\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f241aab-7e1d-4e3a-9020-166ff7d7e7d0",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "device",
+                    "v1",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://config.mycloud.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2780b43d-31e9-4e50-bd8d-83f0c7c8ef64",
+    "name": "WD My Cloud Home Authentication Device API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The WD My Cloud Home REST API enables off-device applications to manage files and folders on a user's My Cloud Home NAS device. It supports file upload, download, listing, search, sharing, thumbnails, and device discovery via OAuth 2.0 authentication.\n\nContact Support:\n Name: Western Digital Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

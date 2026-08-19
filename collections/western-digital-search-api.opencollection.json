@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WD My Cloud Home Authentication Search API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Files by Parent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://config.mycloud.com/sdk/v2/filesSearch/parents",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of parent folder IDs to search within. Use \"root\" for the root folder."
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns files within a specified parent folder, enabling directory traversal."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

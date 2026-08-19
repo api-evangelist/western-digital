@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WD My Cloud Home Authentication Device API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Device",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List User Devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://config.mycloud.com/device/v1/user",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns all My Cloud Home devices associated with the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Get Device Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://config.mycloud.com/device/v1/device",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Returns details about a specific My Cloud Home device."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

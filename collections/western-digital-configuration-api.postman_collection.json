@@ -1,0 +1,106 @@
+{
+  "item": [
+    {
+      "id": "2c09ab27-3486-4024-b4f5-bc8b1caa85da",
+      "name": "Configuration",
+      "description": {
+        "content": "Retrieve dynamic service endpoint configuration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3703ab3e-1ffd-428f-8bc3-b8ce7c153a3f",
+          "name": "Get Service Configuration",
+          "request": {
+            "name": "Get Service Configuration",
+            "description": {
+              "content": "Returns all service endpoint URLs used by My Cloud Home applications, including device, auth, and network service URLs. Applications must call this endpoint first to resolve dynamic service URLs before making subsequent API calls.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "config",
+                "v1",
+                "config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c91f6c32-da80-47a9-a9d0-a024590a14dd",
+              "name": "Service configuration object.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "v1",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"cloud\": {\n      \"service\": {\n        \"urls\": {\n          \"componentMap\": {\n            \"service.device.url\": \"https://device.mycloud.com\",\n            \"service.devicenetwork.url\": \"https://devicenetwork.mycloud.com\",\n            \"service.auth0.url\": \"https://wdc.auth0.com\",\n            \"service.auth.url\": \"https://auth.mycloud.com\"\n          }\n        }\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://config.mycloud.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b480c692-0149-4e13-9b7a-eff7ccf77e43",
+    "name": "WD My Cloud Home Authentication Configuration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The WD My Cloud Home REST API enables off-device applications to manage files and folders on a user's My Cloud Home NAS device. It supports file upload, download, listing, search, sharing, thumbnails, and device discovery via OAuth 2.0 authentication.\n\nContact Support:\n Name: Western Digital Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

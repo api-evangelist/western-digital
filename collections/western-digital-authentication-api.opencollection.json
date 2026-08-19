@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "WD My Cloud Home Authentication API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authorize User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://config.mycloud.com/authorize",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query",
+                "description": "OAuth 2.0 client identifier."
+              },
+              {
+                "name": "redirect_uri",
+                "value": "",
+                "type": "query",
+                "description": "URI to redirect to after authorization."
+              },
+              {
+                "name": "response_type",
+                "value": "",
+                "type": "query",
+                "description": "Must be \"code\" for authorization code flow."
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Space-separated list of scopes. Supported: openid, email, profile, nas_read_only, nas_read_write."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "CSRF protection state parameter."
+              }
+            ]
+          },
+          "docs": "Initiates the OAuth 2.0 authorization code flow. Redirects the user to the WD authentication page."
+        },
+        {
+          "info": {
+            "name": "Get Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://config.mycloud.com/oauth/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "code",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                },
+                {
+                  "name": "redirect_uri",
+                  "value": ""
+                },
+                {
+                  "name": "refresh_token",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Exchange authorization code for an OAuth 2.0 access token. Also supports refresh_token grant type when offline_access scope was requested."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
