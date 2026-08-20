@@ -87,6 +87,8 @@ apis:
   humanURL: https://developer.westerndigital.com/develop/wd-my-cloud-home/
   baseURL: https://device.mycloud.com
   tags:
+  - File
+  tags_raw:
   - Files
   properties:
   - type: OpenAPI
