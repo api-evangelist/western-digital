@@ -1,13 +1,7 @@
 {
   "provider": "western-digital",
   "sources": [
-    "western-digital-authentication-api-openapi.yml",
-    "western-digital-configuration-api-openapi.yml",
-    "western-digital-device-api-openapi.yml",
-    "western-digital-files-api-openapi.yml",
-    "western-digital-search-api-openapi.yml",
-    "western-digital-sharing-api-openapi.yml",
-    "western-digital-user-api-openapi.yml"
+    "_original/western-digital-my-cloud-home-openapi.yml"
   ],
   "outputs": [
     "western-digital-authentication-api-openapi.yml",
@@ -21,6 +15,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "western-digital-my-cloud-home-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "western-digital-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "western-digital-configuration-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "western-digital-device-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "western-digital-files-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "western-digital-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "western-digital-sharing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "western-digital-user-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

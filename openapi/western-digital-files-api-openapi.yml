@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: WD My Cloud Home Authentication Files API
+  title: WD My Cloud Home Files API
   description: The WD My Cloud Home REST API enables off-device applications to manage files and folders on a user's My Cloud Home NAS device. It supports file upload, download, listing, search, sharing, thumbnails, and device discovery via OAuth 2.0 authentication.
   version: v2
   termsOfService: https://www.westerndigital.com/legal/terms-of-use
@@ -224,6 +224,31 @@ paths:
                 $ref: '#/components/schemas/FileItem'
 components:
   schemas:
+    FileCreateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the file or folder.
+        mimeType:
+          type: string
+          description: MIME type. Use "application/x.wd.dir" to create a folder.
+        parentId:
+          type: string
+          description: Parent folder ID. Use "root" for root directory.
+      required:
+      - name
+      - mimeType
+      - parentId
+    FileUpdateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: New name for the file or folder.
+        parentId:
+          type: string
+          description: New parent folder ID (to move the file).
     FilesResponse:
       type: object
       properties:
@@ -234,15 +259,6 @@ components:
         pageToken:
           type: string
           description: Token for the next page of results. Absent if no more pages.
-    FileUpdateRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: New name for the file or folder.
-        parentId:
-          type: string
-          description: New parent folder ID (to move the file).
     FileItem:
       type: object
       properties:
@@ -275,22 +291,6 @@ components:
           type: string
           format: uri
           description: Direct download URL.
-    FileCreateRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the file or folder.
-        mimeType:
-          type: string
-          description: MIME type. Use "application/x.wd.dir" to create a folder.
-        parentId:
-          type: string
-          description: Parent folder ID. Use "root" for root directory.
-      required:
-      - name
-      - mimeType
-      - parentId
   securitySchemes:
     bearerAuth:
       type: http

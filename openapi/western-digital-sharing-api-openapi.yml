@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: WD My Cloud Home Authentication Sharing API
+  title: WD My Cloud Home Sharing API
   description: The WD My Cloud Home REST API enables off-device applications to manage files and folders on a user's My Cloud Home NAS device. It supports file upload, download, listing, search, sharing, thumbnails, and device discovery via OAuth 2.0 authentication.
   version: v2
   termsOfService: https://www.westerndigital.com/legal/terms-of-use
@@ -53,28 +53,6 @@ paths:
           description: Unauthorized.
 components:
   schemas:
-    ShareCreateRequest:
-      type: object
-      properties:
-        ownerId:
-          type: string
-          description: Owner user ID.
-        deviceId:
-          type: string
-          description: Device ID where the files reside.
-        fileIds:
-          type: array
-          items:
-            type: string
-          description: List of file IDs to share.
-        expirationDate:
-          type: string
-          format: date-time
-          description: Optional share expiration date.
-      required:
-      - ownerId
-      - deviceId
-      - fileIds
     Share:
       type: object
       properties:
@@ -99,6 +77,28 @@ components:
         expirationDate:
           type: string
           format: date-time
+    ShareCreateRequest:
+      type: object
+      properties:
+        ownerId:
+          type: string
+          description: Owner user ID.
+        deviceId:
+          type: string
+          description: Device ID where the files reside.
+        fileIds:
+          type: array
+          items:
+            type: string
+          description: List of file IDs to share.
+        expirationDate:
+          type: string
+          format: date-time
+          description: Optional share expiration date.
+      required:
+      - ownerId
+      - deviceId
+      - fileIds
   securitySchemes:
     bearerAuth:
       type: http

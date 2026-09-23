@@ -1,7 +1,9 @@
 ---
 title: Western Digital Accelerates Storage Innovation for AI Era
 url: https://www.westerndigital.com/company/newsroom/press-releases/2026/2026-02-03-western-digital-accelerates-storage-innovation-for-ai-era
-date: '2026-05-25'
+published: '2026-02-03'
+date_basis: url-derived
+harvested: '2026-05-25'
 query: '"Western Digital" press release artificial intelligence'
 position: 1
 source: serpapi-google
