@@ -61,20 +61,6 @@ paths:
           description: Unauthorized.
 components:
   schemas:
-    UserAccount:
-      type: object
-      properties:
-        id:
-          type: string
-        email:
-          type: string
-          format: email
-        firstName:
-          type: string
-        lastName:
-          type: string
-        username:
-          type: string
     UserInfo:
       type: object
       properties:
@@ -89,6 +75,20 @@ components:
         picture:
           type: string
           format: uri
+    UserAccount:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+          format: email
+        firstName:
+          type: string
+        lastName:
+          type: string
+        username:
+          type: string
   securitySchemes:
     bearerAuth:
       type: http

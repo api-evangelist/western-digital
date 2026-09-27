@@ -62,16 +62,6 @@ paths:
           description: Unauthorized.
 components:
   schemas:
-    FilesResponse:
-      type: object
-      properties:
-        files:
-          type: array
-          items:
-            $ref: '#/components/schemas/FileItem'
-        pageToken:
-          type: string
-          description: Token for the next page of results. Absent if no more pages.
     FileItem:
       type: object
       properties:
@@ -104,6 +94,16 @@ components:
           type: string
           format: uri
           description: Direct download URL.
+    FilesResponse:
+      type: object
+      properties:
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileItem'
+        pageToken:
+          type: string
+          description: Token for the next page of results. Absent if no more pages.
   securitySchemes:
     bearerAuth:
       type: http
