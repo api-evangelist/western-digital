@@ -272,15 +272,6 @@ components:
       - name
       - mimeType
       - parentId
-    FileUpdateRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: New name for the file or folder.
-        parentId:
-          type: string
-          description: New parent folder ID (to move the file).
     FilesResponse:
       type: object
       properties:
@@ -291,6 +282,15 @@ components:
         pageToken:
           type: string
           description: Token for the next page of results. Absent if no more pages.
+    FileUpdateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: New name for the file or folder.
+        parentId:
+          type: string
+          description: New parent folder ID (to move the file).
   securitySchemes:
     bearerAuth:
       type: http
