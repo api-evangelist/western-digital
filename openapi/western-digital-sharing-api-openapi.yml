@@ -53,28 +53,6 @@ paths:
           description: Unauthorized.
 components:
   schemas:
-    ShareCreateRequest:
-      type: object
-      properties:
-        ownerId:
-          type: string
-          description: Owner user ID.
-        deviceId:
-          type: string
-          description: Device ID where the files reside.
-        fileIds:
-          type: array
-          items:
-            type: string
-          description: List of file IDs to share.
-        expirationDate:
-          type: string
-          format: date-time
-          description: Optional share expiration date.
-      required:
-      - ownerId
-      - deviceId
-      - fileIds
     Share:
       type: object
       properties:
@@ -99,6 +77,28 @@ components:
         expirationDate:
           type: string
           format: date-time
+    ShareCreateRequest:
+      type: object
+      properties:
+        ownerId:
+          type: string
+          description: Owner user ID.
+        deviceId:
+          type: string
+          description: Device ID where the files reside.
+        fileIds:
+          type: array
+          items:
+            type: string
+          description: List of file IDs to share.
+        expirationDate:
+          type: string
+          format: date-time
+          description: Optional share expiration date.
+      required:
+      - ownerId
+      - deviceId
+      - fileIds
   securitySchemes:
     bearerAuth:
       type: http

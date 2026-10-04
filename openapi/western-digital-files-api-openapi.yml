@@ -224,6 +224,41 @@ paths:
                 $ref: '#/components/schemas/FileItem'
 components:
   schemas:
+    FileUpdateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: New name for the file or folder.
+        parentId:
+          type: string
+          description: New parent folder ID (to move the file).
+    FilesResponse:
+      type: object
+      properties:
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileItem'
+        pageToken:
+          type: string
+          description: Token for the next page of results. Absent if no more pages.
+    FileCreateRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the file or folder.
+        mimeType:
+          type: string
+          description: MIME type. Use "application/x.wd.dir" to create a folder.
+        parentId:
+          type: string
+          description: Parent folder ID. Use "root" for root directory.
+      required:
+      - name
+      - mimeType
+      - parentId
     FileItem:
       type: object
       properties:
@@ -256,41 +291,6 @@ components:
           type: string
           format: uri
           description: Direct download URL.
-    FileCreateRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the file or folder.
-        mimeType:
-          type: string
-          description: MIME type. Use "application/x.wd.dir" to create a folder.
-        parentId:
-          type: string
-          description: Parent folder ID. Use "root" for root directory.
-      required:
-      - name
-      - mimeType
-      - parentId
-    FilesResponse:
-      type: object
-      properties:
-        files:
-          type: array
-          items:
-            $ref: '#/components/schemas/FileItem'
-        pageToken:
-          type: string
-          description: Token for the next page of results. Absent if no more pages.
-    FileUpdateRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: New name for the file or folder.
-        parentId:
-          type: string
-          description: New parent folder ID (to move the file).
   securitySchemes:
     bearerAuth:
       type: http
