@@ -1,300 +1,315 @@
 {
+  "info": {
+    "_postman_id": "fc7b816d-2164-4541-b53e-ddb39427a298",
+    "name": "WD My Cloud Home User API",
+    "description": "The WD My Cloud Home REST API enables off-device applications to manage files and folders on a user's My Cloud Home NAS device. It supports file upload, download, listing, search, sharing, thumbnails, and device discovery via OAuth 2.0 authentication.\n\nContact Support:\n Name: Western Digital Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:03:54.000Z",
+    "updatedAt": "2026-10-22T02:03:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fc7b816d-2164-4541-b53e-ddb39427a298"
+  },
   "item": [
     {
-      "id": "09430398-eed2-4148-bdc3-f42242dc3f24",
-      "name": "User",
-      "description": {
-        "content": "User account information.",
-        "type": "text/plain"
-      },
+      "name": "userinfo",
       "item": [
         {
-          "id": "63ab9fc4-c31b-4142-a940-7d31f639f44c",
           "name": "Get User Information",
+          "id": "34f5a24b-2ac3-4613-9056-16e1e17b0b67",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Get User Information",
-            "description": {
-              "content": "Returns profile information for the authenticated user.",
-              "type": "text/plain"
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
             },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "url": {
+              "raw": "https://wdc.auth0.com/userinfo",
               "protocol": "https",
-              "path": [
-                "userinfo"
-              ],
               "host": [
                 "wdc",
                 "auth0",
                 "com"
               ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
+              "path": [
+                "userinfo"
               ]
-            }
+            },
+            "description": "Returns profile information for the authenticated user."
           },
           "response": [
             {
-              "id": "0752c873-c5f2-45cd-9f55-ba1bc03f52b8",
+              "id": "a2b9100d-5792-4aa0-a685-46c2bce0844f",
               "name": "User profile information.",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
                 "url": {
+                  "raw": "https://wdc.auth0.com/userinfo",
                   "protocol": "https",
-                  "path": [
-                    "userinfo"
-                  ],
                   "host": [
                     "wdc",
                     "auth0",
                     "com"
                   ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  "path": [
+                    "userinfo"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"sub\": \"string\",\n  \"email\": \"JVeC@bfnCleTGciNbKzVaezUgmHTEp.ya\",\n  \"name\": \"string\",\n  \"picture\": \"http://KGALfqiHnDAmaTQhQhgkc.rdige5McuNh\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"sub\": \"<string>\",\n  \"email\": \"<email>\",\n  \"name\": \"<string>\",\n  \"picture\": \"<uri>\"\n}",
+              "createdAt": "2026-10-22T02:03:54.000Z",
+              "updatedAt": "2026-10-22T02:03:54.000Z",
+              "uid": "35240-a2b9100d-5792-4aa0-a685-46c2bce0844f"
             },
             {
-              "id": "b1a2d9bf-1be5-4d1a-b0dd-f2c541cf9f42",
+              "id": "191209b0-8c3b-4388-8987-568cd6e5e78d",
               "name": "Unauthorized.",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
                 "url": {
+                  "raw": "https://wdc.auth0.com/userinfo",
                   "protocol": "https",
-                  "path": [
-                    "userinfo"
-                  ],
                   "host": [
                     "wdc",
                     "auth0",
                     "com"
                   ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  "path": [
+                    "userinfo"
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:03:54.000Z",
+              "updatedAt": "2026-10-22T02:03:54.000Z",
+              "uid": "35240-191209b0-8c3b-4388-8987-568cd6e5e78d"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0ddf4948-90b6-49eb-abcd-8f94f50283ad",
-          "name": "Get Authenticated User",
-          "request": {
-            "name": "Get Authenticated User",
-            "description": {
-              "content": "Returns the authenticated user's account details from the auth service.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "authservice",
-                "v2",
-                "auth0",
-                "user"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            }
-          },
-          "response": [
-            {
-              "id": "5dee6e4d-7c27-47e7-b4bf-5777ee23ca41",
-              "name": "Authenticated user details.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "authservice",
-                    "v2",
-                    "auth0",
-                    "user"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"email\": \"W8i7OZVurTW@fz.oblp\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"username\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "971baa0d-e796-4c28-b90c-c762aae5f275",
-              "name": "Unauthorized.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "authservice",
-                    "v2",
-                    "auth0",
-                    "user"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:03:54.000Z",
+          "updatedAt": "2026-10-22T02:03:54.000Z",
+          "uid": "35240-34f5a24b-2ac3-4613-9056-16e1e17b0b67"
         }
       ],
-      "event": []
+      "id": "65e0696e-3962-4964-8179-4f934233578b",
+      "createdAt": "2026-10-22T02:03:54.000Z",
+      "updatedAt": "2026-10-22T02:03:54.000Z",
+      "uid": "35240-65e0696e-3962-4964-8179-4f934233578b"
+    },
+    {
+      "name": "authservice",
+      "item": [
+        {
+          "name": "v2",
+          "item": [
+            {
+              "name": "auth0",
+              "item": [
+                {
+                  "name": "user",
+                  "item": [
+                    {
+                      "name": "Get Authenticated User",
+                      "id": "77825bd1-05c5-4e4d-8e61-a76873eed9d7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/authservice/v2/auth0/user",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "authservice",
+                            "v2",
+                            "auth0",
+                            "user"
+                          ]
+                        },
+                        "description": "Returns the authenticated user's account details from the auth service."
+                      },
+                      "response": [
+                        {
+                          "id": "493995fe-85fa-451a-bf2c-3fc5ff9e386c",
+                          "name": "Authenticated user details.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/authservice/v2/auth0/user",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "authservice",
+                                "v2",
+                                "auth0",
+                                "user"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"email\": \"<email>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                          "createdAt": "2026-10-22T02:03:54.000Z",
+                          "updatedAt": "2026-10-22T02:03:54.000Z",
+                          "uid": "35240-493995fe-85fa-451a-bf2c-3fc5ff9e386c"
+                        },
+                        {
+                          "id": "8580c7ca-0d7c-4c71-8455-b6ac3ca12a61",
+                          "name": "Unauthorized.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/authservice/v2/auth0/user",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "authservice",
+                                "v2",
+                                "auth0",
+                                "user"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T02:03:54.000Z",
+                          "updatedAt": "2026-10-22T02:03:54.000Z",
+                          "uid": "35240-8580c7ca-0d7c-4c71-8455-b6ac3ca12a61"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T02:03:54.000Z",
+                      "updatedAt": "2026-10-22T02:03:54.000Z",
+                      "uid": "35240-77825bd1-05c5-4e4d-8e61-a76873eed9d7"
+                    }
+                  ],
+                  "id": "1104cfe0-9eab-474c-8925-9da05f4f6866",
+                  "createdAt": "2026-10-22T02:03:54.000Z",
+                  "updatedAt": "2026-10-22T02:03:54.000Z",
+                  "uid": "35240-1104cfe0-9eab-474c-8925-9da05f4f6866"
+                }
+              ],
+              "id": "e39092ff-7d79-4d8f-82b2-40b7534bfb74",
+              "createdAt": "2026-10-22T02:03:54.000Z",
+              "updatedAt": "2026-10-22T02:03:54.000Z",
+              "uid": "35240-e39092ff-7d79-4d8f-82b2-40b7534bfb74"
+            }
+          ],
+          "id": "fa14a261-335d-4f1f-a25f-4fcdab2ac871",
+          "createdAt": "2026-10-22T02:03:54.000Z",
+          "updatedAt": "2026-10-22T02:03:54.000Z",
+          "uid": "35240-fa14a261-335d-4f1f-a25f-4fcdab2ac871"
+        }
+      ],
+      "id": "5c834035-7ae3-4f5c-9d67-247ed82b0d18",
+      "createdAt": "2026-10-22T02:03:54.000Z",
+      "updatedAt": "2026-10-22T02:03:54.000Z",
+      "uid": "35240-5c834035-7ae3-4f5c-9d67-247ed82b0d18"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://config.mycloud.com",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://config.mycloud.com"
     }
-  ],
-  "info": {
-    "_postman_id": "0b766ae5-d271-4822-aaa4-ff697f0de2d2",
-    "name": "WD My Cloud Home Authentication User API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The WD My Cloud Home REST API enables off-device applications to manage files and folders on a user's My Cloud Home NAS device. It supports file upload, download, listing, search, sharing, thumbnails, and device discovery via OAuth 2.0 authentication.\n\nContact Support:\n Name: Western Digital Developer Support",
-      "type": "text/plain"
-    }
-  }
+  ]
 }

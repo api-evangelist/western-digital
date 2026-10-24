@@ -1,189 +1,199 @@
 {
+  "info": {
+    "_postman_id": "d71f69f5-9464-471e-83c3-c097e155ffa7",
+    "name": "WD My Cloud Home Sharing API",
+    "description": "The WD My Cloud Home REST API enables off-device applications to manage files and folders on a user's My Cloud Home NAS device. It supports file upload, download, listing, search, sharing, thumbnails, and device discovery via OAuth 2.0 authentication.\n\nContact Support:\n Name: Western Digital Developer Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:03:48.000Z",
+    "updatedAt": "2026-10-22T02:03:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d71f69f5-9464-471e-83c3-c097e155ffa7"
+  },
   "item": [
     {
-      "id": "d23383d7-f29c-4f21-8075-8edcefc5daa0",
-      "name": "Sharing",
-      "description": {
-        "content": "Create and manage file shares.",
-        "type": "text/plain"
-      },
+      "name": "v1",
       "item": [
         {
-          "id": "d0b90904-de26-42e6-a05e-362aea584cdb",
-          "name": "Create Share",
-          "request": {
-            "name": "Create Share",
-            "description": {
-              "content": "Creates a share link for one or more files on the device.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v1",
-                "shares"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": {
-              "type": "bearer",
-              "bearer": [
-                {
-                  "key": "token",
-                  "value": "{{bearerToken}}"
-                }
-              ]
-            },
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"ownerId\": \"<string>\",\n  \"deviceId\": \"<string>\",\n  \"fileIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"expirationDate\": \"<dateTime>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
+          "name": "shares",
+          "item": [
             {
-              "id": "ec868311-1ae6-4e43-b090-bfd4c1873ecf",
-              "name": "Share created.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v1",
-                    "shares"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
+              "name": "Create Share",
+              "id": "d140853d-ea11-4b2c-80d1-a5da6e5468fd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
                 },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"ownerId\": \"user123\",\n  \"deviceId\": \"device456\",\n  \"fileIds\": [\n    \"file789\",\n    \"file101\"\n  ]\n}",
+                  "raw": "{\n  \"ownerId\": \"<string>\",\n  \"deviceId\": \"<string>\",\n  \"fileIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"expirationDate\": \"<dateTime>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"id\": \"string\",\n  \"shareUrl\": \"http://qPTZITnlDpLFEroSnCycyPSiJgBepRga.gnvaKAiR5XyG+pVHNlrhzY8+o.ld96xwnKJM5kNj-797QvjpTY+C\",\n  \"ownerId\": \"string\",\n  \"deviceId\": \"string\",\n  \"fileIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"createdTime\": \"2013-01-15T12:35:30.166Z\",\n  \"expirationDate\": \"2004-03-17T19:05:14.781Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "b873dce9-6e24-4a8e-8505-b941c8f4c652",
-              "name": "Unauthorized.",
-              "originalRequest": {
+                },
                 "url": {
-                  "path": [
-                    "v1",
-                    "shares"
-                  ],
+                  "raw": "{{baseUrl}}/v1/shares",
                   "host": [
                     "{{baseUrl}}"
                   ],
-                  "query": [],
-                  "variable": []
+                  "path": [
+                    "v1",
+                    "shares"
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"ownerId\": \"user123\",\n  \"deviceId\": \"device456\",\n  \"fileIds\": [\n    \"file789\",\n    \"file101\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
+                "description": "Creates a share link for one or more files on the device."
               },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "ea84d540-2e07-4132-addf-f3a93d554454",
+                  "name": "Share created.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"ownerId\": \"<string>\",\n  \"deviceId\": \"<string>\",\n  \"fileIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"expirationDate\": \"<dateTime>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/shares",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "shares"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"shareUrl\": \"<uri>\",\n  \"ownerId\": \"<string>\",\n  \"deviceId\": \"<string>\",\n  \"fileIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createdTime\": \"<dateTime>\",\n  \"expirationDate\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-10-22T02:03:48.000Z",
+                  "updatedAt": "2026-10-22T02:03:48.000Z",
+                  "uid": "35240-ea84d540-2e07-4132-addf-f3a93d554454"
+                },
+                {
+                  "id": "7ffc4d6f-2d3d-4396-a249-307ab6ea17f1",
+                  "name": "Unauthorized.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"ownerId\": \"<string>\",\n  \"deviceId\": \"<string>\",\n  \"fileIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"expirationDate\": \"<dateTime>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/shares",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "shares"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:03:48.000Z",
+                  "updatedAt": "2026-10-22T02:03:48.000Z",
+                  "uid": "35240-7ffc4d6f-2d3d-4396-a249-307ab6ea17f1"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-22T02:03:48.000Z",
+              "updatedAt": "2026-10-22T02:03:48.000Z",
+              "uid": "35240-d140853d-ea11-4b2c-80d1-a5da6e5468fd"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "81cd77b0-b482-424b-84b1-0d7f52d6996d",
+          "createdAt": "2026-10-22T02:03:48.000Z",
+          "updatedAt": "2026-10-22T02:03:48.000Z",
+          "uid": "35240-81cd77b0-b482-424b-84b1-0d7f52d6996d"
         }
       ],
-      "event": []
+      "id": "d64f8943-39a3-4d2d-8735-907cf0b573c3",
+      "createdAt": "2026-10-22T02:03:48.000Z",
+      "updatedAt": "2026-10-22T02:03:48.000Z",
+      "uid": "35240-d64f8943-39a3-4d2d-8735-907cf0b573c3"
     }
   ],
-  "event": [],
   "variable": [
     {
-      "type": "string",
-      "value": "https://config.mycloud.com",
-      "key": "baseUrl"
+      "key": "baseUrl",
+      "value": "https://config.mycloud.com"
     }
-  ],
-  "info": {
-    "_postman_id": "a55dbe62-ad54-485b-b917-314887afe057",
-    "name": "WD My Cloud Home Authentication Sharing API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The WD My Cloud Home REST API enables off-device applications to manage files and folders on a user's My Cloud Home NAS device. It supports file upload, download, listing, search, sharing, thumbnails, and device discovery via OAuth 2.0 authentication.\n\nContact Support:\n Name: Western Digital Developer Support",
-      "type": "text/plain"
-    }
-  }
+  ]
 }
